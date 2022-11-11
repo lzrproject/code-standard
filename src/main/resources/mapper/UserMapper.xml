@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.code.mysql.mapper.UserMapper">
+    <insert id="insertBatch">
+        insert into student(c_id, stu_name, stu_number,c_name, stu_phone_number, stu_create_time,status)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.cId},#{item.stuName},#{item.stuNumber},#{item.cName},#{item.stuPhoneNumber},#{item.stuCreateTime},#{item.status})
+        </foreach>
+    </insert>
+</mapper>
